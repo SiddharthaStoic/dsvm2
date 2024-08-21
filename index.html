@@ -1,0 +1,783 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MQP_M2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7c60a90e-9bdf-4c15-9bf1-3e452e2e2b03" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Hey_Machine_Learning_Logo.png"/></div><h1 class="page-title">MQP_M2</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Week</th><td><span class="selected-value select-value-color-pink">Module 2</span></td></tr></tbody></table></header><div class="page-body"><h3 id="c64dd69a-50bd-48ee-922b-c59632961761" class="block-color-yellow_background">1. Explain the Data science Process with a neat diagram. (10)</h3><h3 id="a6298839-9464-4888-99bd-a13539f38612" class="">Answer</h3><p id="1b9f7c84-f1db-47ae-a216-3709f7fe9d78" class="">Refer M1 Q8</p><h3 id="d46ac809-41f8-4e6a-919f-1120b4639a81" class="block-color-yellow_background">2. Which Machine Learning algorithm to be used when you want to express the mathematical relationship between two variables? Explain. (10)</h3><h3 id="d6cf7e7c-5938-435a-80a9-34236bec9c5c" class="">Answer</h3><h3 id="5002ce13-1507-43bb-aca0-bbe9530cf072" class="block-color-default">Linear Regression</h3><p id="651aa3bc-4a5b-4b00-9724-c707aeb2323a" class="">Regression can be defined as a measurement that is used to quantify how the change in one variable will affect another variable.</p><p id="273304a0-0944-4044-9c0a-d17e463829b6" class="">The lines of regression are given by</p><div id="a369f38d-efdf-4b52-afab-de47af0e905c" class="column-list"><div id="7ecce427-98f2-4af8-b872-de51e40ba62c" style="width:41.666666666666664%" class="column"><p id="fe33a800-1d48-4493-acc7-0fbc5745884d" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></span><span>﻿</span></span> on <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></span><span>﻿</span></span> <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>b</mi><msub><mi>x</mi><mi>y</mi></msub></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(b_{x_y})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0973em;vertical-align:-0.3473em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3473em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>:<br/><br/></p><p id="edfaa9bb-fc53-4999-adb6-cf785e84b46b" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>−</mo><mover accent="true"><mi>y</mi><mo>ˉ</mo></mover><mo>=</mo><mstyle scriptlevel="0" displaystyle="true"><mfrac><mrow><mi mathvariant="normal">Σ</mi><mi>X</mi><mi>Y</mi></mrow><mrow><mi mathvariant="normal">Σ</mi><msup><mi>X</mi><mn>2</mn></msup></mrow></mfrac><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><mo stretchy="false">)</mo></mstyle></mrow><annotation encoding="application/x-tex">y - \bar{y} = \displaystyle \frac{\Sigma XY}{\Sigma X^2}(x-\bar{x})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7622em;vertical-align:-0.1944em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">ˉ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Σ</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Σ</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">x</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span></p></div><div id="766f5694-08b0-45de-9c24-32865474b83e" style="width:4.166666666666667%" class="column"><blockquote id="23a59767-b64c-4b2a-b737-654a5fda0339" class=""><br/><br/><br/><br/></blockquote></div><div id="74902ff4-43c3-4dde-8d0f-775a07668f67" style="width:54.166666666666686%" class="column"><p id="d4e9a52c-6c32-4ed9-a61b-c83965a239b9" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></span><span>﻿</span></span> on <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></span><span>﻿</span></span> <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>b</mi><msub><mi>y</mi><mi>x</mi></msub></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(b_{y_x})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>:<br/><br/></p><p id="edc8e9b3-20be-43c1-b8dc-fb62e51cc770" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>−</mo><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><mo>=</mo><mstyle scriptlevel="0" displaystyle="true"><mfrac><mrow><mi mathvariant="normal">Σ</mi><mi>X</mi><mi>Y</mi></mrow><mrow><mi mathvariant="normal">Σ</mi><msup><mi>Y</mi><mn>2</mn></msup></mrow></mfrac><mo stretchy="false">(</mo><mi>y</mi><mo>−</mo><mover accent="true"><mi>y</mi><mo>ˉ</mo></mover><mo stretchy="false">)</mo></mstyle></mrow><annotation encoding="application/x-tex">x - \bar{x} = \displaystyle \frac{\Sigma XY}{\Sigma Y^2}(y-\bar{y})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.5678em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">x</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Σ</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Σ</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">ˉ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span></p></div></div><p id="88bfa9d1-7d53-4c1f-b0d7-6fe064babf95" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="57834505-a903-4613-bb5e-98e8bf5880f9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">The coefficient of correlation is also given by <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><msqrt><mrow><msub><mi>b</mi><msub><mi>y</mi><mi>x</mi></msub></msub><mo>×</mo><msub><mi>b</mi><msub><mi>x</mi><mi>y</mi></msub></msub></mrow></msqrt></mrow><annotation encoding="application/x-tex">r = \sqrt {b_{y_x} \times b_{x_y}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.3814em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8586em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1645em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3473em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8186em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3814em;"><span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>     (use this if the regression lines are given)</div></figure><p id="a584b02f-c3f0-49a2-bdd0-83ed2d330c10" class="">
+</p><figure id="a75c6ab1-5cab-4b8b-8022-23e20da3ed36" class="image"><a href="MQP_M2%207c60a90e9bdf4c159bf13e452e2e2b03/Untitled.png"><img style="width:432px" src="MQP_M2%207c60a90e9bdf4c159bf13e452e2e2b03/Untitled.png"/></a></figure><p id="cb61f24a-9c15-46a7-b8b5-974afc418ff9" class="">
+</p><div id="179ed058-5c13-4d7c-a674-89f27b52a426" class="column-list"><div id="8faa5268-5006-4452-9196-c1e4e56d212c" style="width:68.75%" class="column"><p id="d64bb0ec-ed4c-4715-abb6-950646cf3178" class="">Consider the equation of the form <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">y = ax+b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span></span><span>﻿</span></span></p></div><div id="aebea624-5dc8-4530-b221-48eb003ecc8c" style="width:31.25%" class="column"><p id="bea5d17e-b62e-42b2-9fe8-9925413a96d4" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>…</mo><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">… (1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span></p></div></div><p id="f88b3d09-7694-41c4-a650-a1d42599214b" class="">The normal equations associated with equation <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> are:</p><figure id="74cdba1b-6ea1-4da0-bc51-7de02330aba7" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">Σ</mi><mi>y</mi><mo>=</mo><mi>a</mi><mi mathvariant="normal">Σ</mi><mi>x</mi><mo>+</mo><mi>n</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">\Sigma y = a \Sigma x + nb</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">Σ</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mord">Σ</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">nb</span></span></span></span></span></div></figure><figure id="10635f98-5993-460a-9706-96d34753e8d1" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">Σ</mi><mi>x</mi><mi>y</mi><mo>=</mo><mi>a</mi><mi mathvariant="normal">Σ</mi><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>b</mi><mi mathvariant="normal">Σ</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\Sigma xy = a \Sigma x^2 + b \Sigma x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">Σ</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9474em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mord">Σ</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mord">Σ</span><span class="mord mathnormal">x</span></span></span></span></span></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="fdc589db-97ca-4514-b8e2-52c331781bb4"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Can be found by multiplying <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\Sigma x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Σ</span><span class="mord mathnormal">x</span></span></span></span></span><span>﻿</span></span> on both sides of the above.</div></figure><p id="4768f612-ed10-43a6-b935-417141db6b5e" class="">
+</p><div id="c7aede8a-b4d1-4337-8af1-c0c9f5c0db5e" class="column-list"><div id="49a8c86c-27e5-48da-8eaa-aefde7908545" style="width:68.75%" class="column"><p id="8755a1e3-72ad-41b2-9fc9-b6c70eb78c21" class="">Consider the equation of the form <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">y = a+bx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">x</span></span></span></span></span><span>﻿</span></span></p></div><div id="0a59d68b-50cb-470d-b355-7886d49fe495" style="width:31.250000000000007%" class="column"><p id="a1a81d7a-6876-4dc1-bb4e-f93dfd8087e8" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>…</mo><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">… (2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span></p></div></div><p id="077be195-00fb-4d10-a0da-1b515c00cae0" class="">The normal equations associated with equation <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> are:</p><figure id="417f2dc6-71b7-4939-a3c4-6c60e52f4478" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">Σ</mi><mi>y</mi><mo>=</mo><mi>n</mi><mi>a</mi><mo>+</mo><mi>b</mi><mi mathvariant="normal">Σ</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\Sigma y = na + b \Sigma x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">Σ</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">na</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mord">Σ</span><span class="mord mathnormal">x</span></span></span></span></span></div></figure><figure id="3196d35d-426d-419c-a4c4-91c81ff23ae3" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">Σ</mi><mi>x</mi><mi>y</mi><mo>=</mo><mi>a</mi><mi mathvariant="normal">Σ</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi mathvariant="normal">Σ</mi><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\Sigma xy = a \Sigma x + b \Sigma x^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">Σ</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mord">Σ</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8641em;"></span><span class="mord mathnormal">b</span><span class="mord">Σ</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></div></figure><p id="30ff6a37-6c24-4bc9-bdd5-e77590ba4756" class="">
+</p><p id="8854e5f3-1254-411f-bf82-563e35414ea3" class="">
+</p><div id="fff8a7cc-169d-807d-8dc9-ed0a54c5ed10" class="column-list"><div id="63875622-4879-446c-8d88-13abdfe0bf20" style="width:43.75%" class="column"><figure id="c7d1068d-c251-4848-bee8-3f0ae180006a" class="image"><a href="MQP_M2%207c60a90e9bdf4c159bf13e452e2e2b03/Untitled%201.png"><img style="width:384px" src="MQP_M2%207c60a90e9bdf4c159bf13e452e2e2b03/Untitled%201.png"/></a></figure></div><div id="70571465-d9c2-473a-b1c4-35df70c6125c" style="width:56.25%" class="column"><figure id="2457fdfd-ba22-41d7-a4ce-593a5dd0637e" class="image"><a href="MQP_M2%207c60a90e9bdf4c159bf13e452e2e2b03/Untitled%202.png"><img style="width:480px" src="MQP_M2%207c60a90e9bdf4c159bf13e452e2e2b03/Untitled%202.png"/></a></figure></div></div><p id="010dcd53-b517-4ee1-85a2-a351542e599e" class="">
+</p><h3 id="fff8a7cc-169d-809d-95ab-e19890b026ef" class="block-color-yellow_background"> 3. Explain Exploratory Data Analysis. (10)</h3><h3 id="bf5ea985-4538-4e67-aafd-576b08751c68" class="">Answer</h3><p id="1d04e52a-af47-49c5-bf57-f3d64f5f9bdb" class="">EDA is the first step towards building a model. EDA is often relegated to chapter 1 (by which we mean the “easiest” and lowest level) of standard introductory statistics textbooks and then forgotten about for the rest of the book.</p><p id="2725fdec-65cc-4a0a-91e6-cceeb4a43c12" class="">It’s traditionally presented as a bunch of histograms and stem-and-leaf plots. They teach that stuff to kids in fifth grade so it seems trivial, right? No wonder no one thinks much of it.</p><p id="fff8a7cc-169d-8032-a586-dd58612af428" class="">But EDA is a critical part of the data science process, and also represents a philosophy or way of doing statistics practiced by a strain of statisticians coming from the Bell Labs tradition.</p><p id="73a424aa-388e-4b34-96c4-8f02c43bd6c0" class="">John Tukey, a mathematician at Bell Labs, developed exploratory data analysis in contrast to confirmatory data analysis, which concerns itself with modeling and hypotheses as described in the previous section. In EDA, there is no hypothesis and there is no model. The “exploratory” aspect means that your understanding of the problem you are solving, or might solve, is changing as you go.</p><p id="b2fa54c5-9a77-4da4-96ea-0148f2afe413" class="">The basic tools of EDA are plots, graphs and summary statistics. Generally speaking, it’s a method of systematically going through the data, plotting distributions of all variables (using box plots), plotting time series of data, transforming variables, looking at all pairwise relationships between variables using scatterplot matrices, and generating summary statistics for all of them. At the very least that would mean computing their mean, minimum, maximum, the upper and lower quartiles, and identifying outliers.</p><p id="53fbbae6-fb7a-4001-8698-692b0f2b9b40" class="">But as much as EDA is a set of tools, it’s also a mindset. And that mindset is about your relationship with the data. You want to understand the data — gain intuition, understand the shape of it, and try to connect your understanding of the process that generated the data to the data itself. EDA happens between you and the data and isn’t about proving anything to anyone else yet.</p><h3 id="fe525de1-2a08-4f54-911a-b2cad0b3c972" class="">Example</h3><p id="82156354-801e-477f-b14f-aa726aa81e76" class="">There are 31 datasets named nyt1.csv, nyt2.csv,…,nyt31.csv, which you can find here: <a href="https://github.com/oreillymedia/doing_data_science">https://github.com/oreillymedia/doing_data_science</a>.</p><p id="98de02e6-c254-4742-94f8-2c6278341eb2" class="">Each one represents one (simulated) day’s worth of ads shown and clicks recorded on the New York Times home page in May 2012. Each row represents a single user. There are five columns: age, gender (0=female, 1=male), number impressions, number clicks, and logged-in.</p><p id="5d35e924-8efc-4e2f-af52-1e1fe7133d6e" class="">You’ll be using R to handle these data. It’s a programming language designed specifically for data analysis, and it’s pretty intuitive to start using. Once you have it installed, you can load a single file into R with this command:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="33d3e244-6038-4e65-b19b-313726fe0244" class="code"><code class="language-R">data1 &lt;- read.csv(url(&quot;http://stat.columbia.edu/~rachel/datasets/nyt1.csv&quot;))</code></pre><p id="870f7225-a3a7-44d0-8cb1-c5de7cce6654" class="">Once you have the data loaded, it’s time for some EDA:</p><ol type="1" id="3f02659b-058c-46c4-92f5-d336074d5009" class="numbered-list" start="1"><li>Create a new variable, <code>age_group</code>, that that categorizes users as “<code>&lt;18</code>”, “<code>18-24</code>”, “<code>25-34</code>”, “<code>35-44</code>”, “<code>45-54</code>”, “<code>55-64</code>”, and “<code>65+</code>”.</li></ol><ol type="1" id="fbefd46b-6b95-4fd8-99df-0df2abff5780" class="numbered-list" start="2"><li>For a single day:<ol type="a" id="a9f79c59-e3a8-4db0-9186-ab1d72544352" class="numbered-list" start="1"><li>Plot the distributions of number impressions and click-through-rate <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">(</mo><mtext>Click Through Rate</mtext><mo>=</mo><mfrac><mtext>Number of Clicks</mtext><mtext>Number of Impressions</mtext></mfrac><mo fence="true">)</mo></mrow><annotation encoding="application/x-tex">\left( \text{Click Through Rate} = \frac{\text{Number of Clicks}}{\text{Number of Impressions}} \right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.8em;vertical-align:-0.65em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord text"><span class="mord">Click Through Rate</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">Number of Impressions</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">Number of Clicks</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4811em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span></span></span></span></span><span>﻿</span></span> for these six age categories.</li></ol><ol type="a" id="434c54ca-787c-4b56-902d-67115e66584b" class="numbered-list" start="2"><li>Define a new variable to segment or categorize users based on their click behavior.</li></ol><ol type="a" id="6b114c53-6e61-42aa-8c63-b7fcf0b8b5fe" class="numbered-list" start="3"><li>Explore the data and make visual and quantitative comparisons across user segments/demographics (&lt;18-year-old males versus &lt;18-year-old females or logged-in versus not, for example).</li></ol><ol type="a" id="cd4d5091-6c62-47f3-912b-985a89e4df8e" class="numbered-list" start="4"><li>Create metrics/measurements/statistics that summarize the data. Examples of potential metrics include CTR, quantiles, mean, median, variance, and max, and these can be calculated across the various user segments. Be selective. Think about what will be important to track over time—what will compress the data, but still capture user behavior.</li></ol></li></ol><ol type="1" id="ce1d6956-2699-4600-b606-d6069087a332" class="numbered-list" start="3"><li>Now extend your analysis across days. Visualize some metrics and distributions over time.</li></ol><ol type="1" id="3cb54a9a-3c5b-47f5-a4a9-2ab71003716f" class="numbered-list" start="4"><li>Describe and interpret any patterns you find.</li></ol><p id="b596184b-0269-47c6-99d2-9416ecb5c76c" class="">
+</p><h3 id="7dc41960-7f40-403e-a504-1a3b09a9c8e3" class="block-color-yellow_background">4. Which Machine Learning algorithm to be used when you have bunch of objects that are already classified and based on which other similar objects that haven’t got classified to be automatically labelled? Explain. (10)</h3><h3 id="5d1b4283-c75e-48e8-80d7-bc671935ecff" class="">Answer</h3><h3 id="5354b062-4261-42b6-950e-3b77f7a6ff30" class="">Introduction:</h3><p id="4cd57854-e2d1-44a0-9598-f043852f4723" class="">k-Nearest Neighbors (k-NN) is a machine learning algorithm that is used when you have a set of objects that have already been classified or labeled, and you need to automatically label similar, yet unlabeled objects.</p><h3 id="cf416730-e458-47cf-a4b6-7cab81422de5" class="">Description of k-NN:</h3><ul id="efd84b8c-e802-401d-b997-28dc7598212d" class="bulleted-list"><li style="list-style-type:disc"><strong>k-NN</strong> is particularly useful for tasks where you need to classify new data points based on their similarity to previously labeled data.</li></ul><ul id="99f4f7ff-cedd-40b3-a63f-c595b13ec5c8" class="bulleted-list"><li style="list-style-type:disc">For instance, objects could be classified into categories like &quot;high credit&quot; or &quot;low credit,&quot; &quot;high cancer risk&quot; or &quot;low cancer risk,&quot; etc.</li></ul><h3 id="93c4794c-c180-4328-9926-cd0e01bdf3cc" class="">Comparison with Linear Regression:</h3><ul id="101cfef7-d342-4bf6-8011-5a0eb5a8e0cf" class="bulleted-list"><li style="list-style-type:disc">Linear regression is typically used for predicting continuous variables, not categorical labels.</li></ul><ul id="0f53d9a0-5eab-4aed-8ddf-7ce2fcc103c9" class="bulleted-list"><li style="list-style-type:disc">However, with thresholds, linear regression can be adapted to create bins or ranges for classification, though this approach has limitations.</li></ul><ul id="958f3e0b-b37e-486a-9312-c3f6cae052d1" class="bulleted-list"><li style="list-style-type:disc">Unlike linear regression, k-NN directly handles categorical labels by voting among the nearest neighbors.</li></ul><h3 id="fcb41259-a909-4b78-83db-5f86ac8302d5" class="">Intuition Behind k-NN:</h3><ul id="d445b173-6f4c-4a98-9eaf-5a78ae7623e8" class="bulleted-list"><li style="list-style-type:disc">The algorithm works by finding the most similar items (neighbors) based on their attributes.</li></ul><ul id="92e5bb2f-4e12-43a6-b63c-85794b90afac" class="bulleted-list"><li style="list-style-type:disc">The unlabeled object is then given the label that is most common among its nearest neighbors.</li></ul><ul id="5ecf9dc7-d930-4ab8-85bb-c69d36528824" class="bulleted-list"><li style="list-style-type:disc">If there is a tie in votes, the label is selected randomly among those tied.</li></ul><h3 id="b20d327d-215f-43fb-b86c-8b1012f790bb" class="">Practical Example with Credit Scores:</h3><ul id="17e11693-09ce-4b4e-8bfe-e0986e36577a" class="bulleted-list"><li style="list-style-type:disc"><strong>Scenario</strong>: You have data on individuals&#x27; age, income, and credit ratings (either &quot;high&quot; or &quot;low&quot;).</li></ul><ul id="a4fef15a-4c57-4bfb-a161-d04f85972fc1" class="bulleted-list"><li style="list-style-type:disc"><strong>Goal</strong>: Predict the credit rating for a new individual based on their age and income.</li></ul><h3 id="1a229afc-88c9-453b-b607-e75459e5f93b" class="">Steps in k-NN:</h3><ol type="1" id="b4ca6b69-9911-4758-962e-258b90b70723" class="numbered-list" start="1"><li><strong>Similarity Metric</strong>: Decide how to measure similarity or distance (e.g., Euclidean distance).</li></ol><ol type="1" id="b2529099-7f70-45de-8488-dc360069b99a" class="numbered-list" start="2"><li><strong>Data Splitting</strong>: Divide the dataset into training and test sets.</li></ol><ol type="1" id="f2c27171-8396-4740-ab24-f4e48c40ec7f" class="numbered-list" start="3"><li><strong>Evaluation Metric</strong>: Choose an evaluation metric like misclassification rate.</li></ol><ol type="1" id="257352a1-f088-4885-bddf-6520aa90c13c" class="numbered-list" start="4"><li><strong>Running k-NN</strong>: Test the algorithm with different values of <code>k</code> and choose the one that gives the best performance.</li></ol><ol type="1" id="0dd1c44a-a57d-4cc9-aa56-aaf2ead9d585" class="numbered-list" start="5"><li><strong>Prediction</strong>: Once <code>k</code> is optimized, use it to predict labels for new data points.</li></ol><p id="e520f6f2-ae21-43aa-a448-b9d0b181e3f8" class="">
+</p><h3 id="fff8a7cc-169d-808a-82cd-d8fe0f919684" class="block-color-yellow_background">5. What is Machine Learning? Explain the linear regression algorithm. (6)</h3><h3 id="457dd109-5d68-4f43-b629-49463bf06cbe" class="">Answer</h3><p id="d19b0eab-571d-4399-a084-ee869dacd5be" class="">Machine Learning (ML) is a subfield of artificial intelligence (AI) that focuses on the development of algorithms and statistical models that enable computers to perform tasks without being explicitly programmed for those tasks.</p><p id="f0a09d54-563c-4070-8464-bf9d3c65a368" class="">The primary goal of machine learning is to allow computers to learn and make predictions or decisions based on data.</p><p id="c992fb09-0d24-4b06-88f2-bc6a16ecf9d5" class="">For Linear Regression, refer Q2.</p><p id="3c27ec1c-dcd8-45d3-9025-b2fa12186725" class="">
+</p><h3 id="fff8a7cc-169d-8027-9189-c52c7717c715" class="block-color-yellow_background">6. Explain K-means algorithm with example. (6)</h3><h3 id="a32d976b-1330-4209-9d1a-9b4abc81bc00" class="">Answer</h3><h3 id="973209bb-3de9-4feb-9d83-faec9a960047" class="">Introduction to k-Means:</h3><ul id="3b4c9d56-a439-4eb9-a167-ef177c973624" class="bulleted-list"><li style="list-style-type:disc"><strong>k-Means</strong> is an unsupervised learning algorithm that aims to find natural groupings or clusters within data.</li></ul><ul id="d0be7de6-b535-4e90-995a-0c771541c280" class="bulleted-list"><li style="list-style-type:disc">Unlike supervised learning, where the correct labels are known, in k-means, the algorithm itself defines the clusters based on the structure of the data.</li></ul><h3 id="2fff8841-79a8-4511-9d40-9b479b3d63d9" class="">Problem Statement:</h3><ul id="5ef00446-adcf-40b1-83c3-566c5f2052c8" class="bulleted-list"><li style="list-style-type:disc">Suppose you have a dataset where each row represents a user with attributes such as age, gender, income, state, and household size.</li></ul><ul id="478cd8cb-c099-49dd-b0bd-8acb30710ed9" class="bulleted-list"><li style="list-style-type:disc">The goal is to segment these users into groups (clusters) that share similar characteristics, a process known as clustering, segmenting, or stratifying.</li></ul><h3 id="1bd9b660-ae45-4aac-96f4-93549d701049" class="">Applications of k-Means Clustering:</h3><ul id="39eb334a-542d-4a4e-b21b-ca0ebef07f83" class="bulleted-list"><li style="list-style-type:disc"><strong>Personalization</strong>: Different users can be given personalized experiences, such as targeted marketing based on cluster membership (e.g., offering printer toner to those likely to own printers).</li></ul><ul id="d28b1986-9c27-409c-baf4-d393767b1259" class="bulleted-list"><li style="list-style-type:disc"><strong>Model Improvement</strong>: Some models may perform better on specific groups, and different clusters might require different models or strategies.</li></ul><ul id="145f00ac-0909-4823-858a-819a6d1fe317" class="bulleted-list"><li style="list-style-type:disc"><strong>Hierarchical Modeling</strong>: In statistics, k-means can help model different effects separately (e.g., geographical vs. household effects in survey data).</li></ul><h3 id="3e75eb4d-e791-478e-9552-4a2643e95674" class="">Manual Binning Example:</h3><ul id="ef216657-d320-4cda-bd63-bba2978bf1f4" class="bulleted-list"><li style="list-style-type:disc">To understand the need for k-means, consider a manual approach to grouping users:<ul id="8a47f5d2-df6e-43d2-b243-4ce9e8e5a49b" class="bulleted-list"><li style="list-style-type:circle"><strong>Binning Attributes</strong>: Users could be grouped into bins based on thresholds (e.g., age groups: 20–24, 25–30; income ranges; etc.).</li></ul><ul id="828761b9-167c-4d69-8fcb-dad46893d32e" class="bulleted-list"><li style="list-style-type:circle"><strong>Dimensionality Challenge</strong>: If you create bins for each attribute, you end up with a large number of possible combinations (e.g., 10 age bins × 2 gender bins × 50 state bins × 10 income bins × 3 household size bins = 30,000 possible bins).</li></ul><ul id="382b843b-c345-4812-b3ec-e7c65e6168b3" class="bulleted-list"><li style="list-style-type:circle"><strong>High Dimensionality</strong>: The data can be thought of as existing in a multi-dimensional space, with each axis corresponding to an attribute (e.g., age, gender, income, etc.).</li></ul><ul id="d469e364-fe49-42ea-8d48-6b0f606ac48f" class="bulleted-list"><li style="list-style-type:circle"><strong>Need for Automation</strong>: Manually creating and managing such a large number of bins is impractical, especially in higher dimensions.</li></ul></li></ul><h3 id="27803e06-574f-4aca-9e9a-5397c5390320" class="">k-Means Clustering Approach:</h3><ul id="8a8fd3da-3d12-4ba7-9bec-9f088ae511cf" class="bulleted-list"><li style="list-style-type:disc"><strong>Defining Clusters</strong>: k-means automates the clustering process by dividing the data into <code>k</code> clusters, where <code>k</code> is a predefined number of clusters.</li></ul><ul id="25b3d8c3-e3de-4a87-a5b2-527f7c6f83b5" class="bulleted-list"><li style="list-style-type:disc"><strong>Cluster Formation</strong>: The algorithm places data points into clusters by minimizing the distance between the data points and the centroid of the cluster they belong to.</li></ul><h3 id="c3cae711-af95-4637-8025-339b360d8847" class="">Simplified 2D Example:</h3><ul id="d4f98ed7-8b98-4bbd-b0b9-75d2c98066e0" class="bulleted-list"><li style="list-style-type:disc"><strong>2D Data Visualization</strong>: Consider a 2-dimensional dataset where each user has two features: the number of ads shown (impressions) and the number of clicks.</li></ul><ul id="48f6d586-1311-48a1-8149-d993c3bcd62d" class="bulleted-list"><li style="list-style-type:disc"><strong>Visual Clustering</strong>: In a simple 2D space, clusters may be visually apparent, as shown in <strong>Figure 3-9</strong>. However, as the number of dimensions and data points increases, it becomes challenging to identify clusters without an algorithm.</li></ul><ul id="3ec2a081-a2dd-4214-9e52-addd1e7189b4" class="bulleted-list"><li style="list-style-type:disc"><strong>High-Dimensional Clustering</strong>: k-means is effective in finding clusters in high-dimensional spaces (where <code>d</code> is the number of features).</li></ul><p id="19d5092a-9611-4aab-8732-fc60b315cc51" class="">
+</p><h3 id="71b1dd4f-75e3-40f4-980c-14c5828198e8" class="block-color-yellow_background">7. Describe philosophy of EDA in detail. (8)</h3><h3 id="2f83fd4c-4afe-4400-8195-20ef6e2cb9bc" class="">Answer</h3><p id="ad17b63a-1f48-40ab-ab0d-6305e7304e5c" class="">While at Google, Rachel was fortunate to work alongside two former Bell Labs/AT&amp;T statisticians—Daryl Pregibon and Diane Lambert, who also work in this vein of applied statistics—and learned from them to make EDA a part of her best practices.</p><p id="0156ddf4-8cca-4f80-b43b-979577c9a815" class="">Yes, even with very large Google-scale data, they did EDA. In the context of data in an Internet/engineering company, EDA is done for some of the same reasons it’s done with smaller datasets, but there are additional reasons to do it with data that has been generated from logs.</p><p id="56f3d57e-abea-4974-93a4-0c2cbcd3b516" class="">There are important reasons anyone working with data should do EDA. Namely, to gain intuition about the data; to make comparisons between distributions; for sanity checking (making sure the data is on the scale you expect, in the format you thought it should be); to find out where data is missing or if there are outliers; and to summarize the data.</p><p id="e8e294f6-c2ff-4e32-b1ac-42285d8ea3a6" class="">In the context of data generated from logs, EDA also helps with debugging the logging process. For example, “patterns” you find in the data could actually be something wrong in the logging process that needs to be fixed. If you never go to the trouble of debugging, you’ll continue to think your patterns are real. The engineers we’ve worked with are always grateful for help in this area.</p><p id="15745420-d096-45d8-98de-f34ba3de0bc2" class="">In the end, EDA helps you make sure the product is performing as intended. </p><p id="2b4bcff1-0860-4290-8f8a-3ae7b8523973" class="">Although there’s lots of visualization involved in EDA, we distinguish between EDA and data visualization in that EDA is done toward the beginning of analysis, and data visualization, as it’s used in our vernacular, is done toward the end to communicate one’s findings. With EDA, the graphics are solely done for you to understand what’s going on.</p><p id="8fe2c51a-ffc4-47be-9521-a3ed47fde39d" class="">With EDA, you can also use the understanding you get to inform and improve the development of algorithms. For example, suppose you are trying to develop a ranking algorithm that ranks content that you are showing to users. To do this you might want to develop a notion of “popular.”</p><p id="accb1377-c0f8-4d39-b91e-8b93d194ff27" class="">Before you decide how to quantify popularity (which could be, for example, highest frequency of clicks, or the post with the most number of comments, or comments above some threshold, or some weighted average of many metrics), you need to understand how the data is behaving, and the best way to do that is looking at it and getting your hands dirty.</p><p id="595684c0-f467-4b2f-8bb2-b53ec347e0f3" class="">Plotting data and making comparisons can get you extremely far, and is far better to do than getting a dataset and immediately running a regression just because you know how. It’s been a disservice to analysts and data scientists that EDA has not been enforced as a critical part of the process of working with data. Take this opportunity to make it part of your process!</p><p id="39573a91-50c9-4d2b-a5d5-4eed84e19bcf" class="">
+</p><h3 id="fff8a7cc-169d-80e3-8ca4-e99b7642be50" class="block-color-yellow_background">8. Repeat Q1 (6)</h3><h3 id="47f8a33c-2e13-45b9-ad5d-a60174f32c56" class="block-color-yellow_background">9. Explain KNN with an Example (6)</h3><h3 id="7c892761-d2ea-42d5-a3fa-89db069e9a02" class="">Answer</h3><p id="e2e911d1-7c34-4fb0-8d92-9f86ad63a13a" class="">Refer Q4</p><h3 id="56f8c2f5-37d5-4783-a5d5-04805e5eacca" class="block-color-yellow_background">10. Develop a R script for EDA. (8)</h3><h3 id="3ac02455-f357-4b81-8be7-b779e8233e56" class="">Answer</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="754214d0-68da-4f0f-91ca-7eab28cdc0e9" class="code"><code class="language-R"># Author: Maura Fitzgerald
+
+# Load the data
+data1 &lt;- read.csv(url(&quot;http://stat.columbia.edu/~rachel/datasets/nyt1.csv&quot;))
+
+# Categorize age into age groups
+data1$agecat &lt;- cut(data1$Age, c(-Inf, 0, 18, 24, 34, 44, 54, 64, Inf))
+
+# View the summary of the data
+summary(data1)
+
+# Install and load the doBy package
+install.packages(&quot;doBy&quot;)
+library(&quot;doBy&quot;)
+
+# Function to calculate summary statistics
+siterange &lt;- function(x) {
+  c(length(x), min(x), mean(x), max(x))
+}
+
+# Summary of age by age category
+summaryBy(Age ~ agecat, data = data1, FUN = siterange)
+
+# Summary of various metrics by age category
+summaryBy(Gender + Signed_In + Impressions + Clicks ~ agecat, data = data1)
+
+# Install and load ggplot2 package
+install.packages(&quot;ggplot2&quot;)
+library(ggplot2)
+
+# Plot histogram of Impressions by age category
+ggplot(data1, aes(x = Impressions, fill = agecat)) +
+  geom_histogram(binwidth = 1)
+
+# Plot boxplot of Impressions by age category
+ggplot(data1, aes(x = agecat, y = Impressions, fill = agecat)) +
+  geom_boxplot()
+
+# Create click-through rate variable
+data1$hasimps &lt;- cut(data1$Impressions, c(-Inf, 0, Inf))
+
+# Summary of Clicks by hasimps
+summaryBy(Clicks ~ hasimps, data = data1, FUN = siterange)
+
+# Density plot of Clicks/Impressions by age category (for those with Impressions &gt; 0)
+ggplot(subset(data1, Impressions &gt; 0), aes(x = Clicks / Impressions, colour = agecat)) +
+  geom_density()
+
+# Density plot of Clicks/Impressions by age category (for those with Clicks &gt; 0)
+ggplot(subset(data1, Clicks &gt; 0), aes(x = Clicks / Impressions, colour = agecat)) +
+  geom_density()
+
+# Boxplot of Clicks by age category (for those with Clicks &gt; 0)
+ggplot(subset(data1, Clicks &gt; 0), aes(x = agecat, y = Clicks, fill = agecat)) +
+  geom_boxplot()
+
+# Density plot of Clicks by age category (for those with Clicks &gt; 0)
+ggplot(subset(data1, Clicks &gt; 0), aes(x = Clicks, colour = agecat)) +
+  geom_density()
+
+# Create categories based on Impressions and Clicks
+data1$scode[data1$Impressions == 0] &lt;- &quot;NoImps&quot;
+data1$scode[data1$Impressions &gt; 0] &lt;- &quot;Imps&quot;
+data1$scode[data1$Clicks &gt; 0] &lt;- &quot;Clicks&quot;
+
+# Convert the scode column to a factor
+data1$scode &lt;- factor(data1$scode)
+
+# View the first few rows of the data
+head(data1)
+
+# Define a function to count the number of elements
+clen &lt;- function(x) {
+  c(length(x))
+}
+
+# Summary table of Impressions by scode, Gender, and age category
+etable &lt;- summaryBy(Impressions ~ scode + Gender + agecat, data = data1, FUN = clen)</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
